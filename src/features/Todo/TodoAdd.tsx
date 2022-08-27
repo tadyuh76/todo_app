@@ -2,10 +2,12 @@ import { Button, Input, Select, Tag } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import uuid from "uuidv4";
+import DBService from "../../services/DBService";
 import { TodoPriority } from "../../utils/enums";
 import todoSlice from "./todoSlice";
 
 const TodoAdd = () => {
+  const dbService = new DBService();
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const [priority, setPriority] = useState<TodoPriority>(TodoPriority.Low);
@@ -13,20 +15,20 @@ const TodoAdd = () => {
   const createNewTodo = () => {
     if (!text) return;
 
-    dispatch(
-      todoSlice.actions.addTodo({
-        id: uuid(),
+    dbService
+      .addTodo({
+        id: "",
         text,
         priority,
         completed: false,
       })
-    );
+      .then((addedTodo) => dispatch(todoSlice.actions.addTodo(addedTodo)));
 
     setText("");
   };
 
   return (
-    <Input.Group style={{ display: "flex" }} compact>
+    <Input.Group style={{ display: "flex", marginTop: 20 }} compact>
       <Input
         allowClear
         value={text}

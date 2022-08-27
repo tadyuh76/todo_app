@@ -8,7 +8,7 @@ body {
 
 .App {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: steelblue;
   display: flex;
   justify-content: center;
@@ -18,10 +18,11 @@ body {
 .card {
   background-color: white;
   width: 400px;
-  height: 550px;
+  /* height: 550px; */
   border-radius: 8px;
   box-shadow: #0006 4px 4px 8px;
   padding: 20px;
+  margin: 100px 0;
 }
 
 .container {
