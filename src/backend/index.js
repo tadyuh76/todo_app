@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Todo } = require("./models");
 const express = require("express");
 const cors = require("cors");
-const { ObjectId } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
 const app = express();
 

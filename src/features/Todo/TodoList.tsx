@@ -18,7 +18,7 @@ const TodoList = () => {
     };
 
     getTodos();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="todo-list">

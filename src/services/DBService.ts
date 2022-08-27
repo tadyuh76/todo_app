@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { TodoI } from "../features/Todo/types";
 
 class DBService {
